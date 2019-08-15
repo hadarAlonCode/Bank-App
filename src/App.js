@@ -54,11 +54,11 @@ class App extends Component {
 
            <Operations pushTransaction={this.pushTransaction} balance={this.Sum}/>
            <div className="bodyGrid">
-           <Transactions data={this.state.data}/>
-           <div className="breakDown">
-             <div className="breakTitle">Breakdown</div>
-             <Breakdown data={this.state.data} />
-           </div>
+            <Transactions data={this.state.data}/>
+            <div className="breakDown">
+              <div className="breakTitle">Breakdown</div>
+              <Breakdown data={this.state.data} />
+            </div>
            </div>
         </div>
         </Router>

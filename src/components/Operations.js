@@ -7,7 +7,8 @@ class Operations extends Component {
             this.state = {
                 Amount: "",
                 Vendor: "",
-                Category: ""
+                Category: "",
+                showInsuffiecientMessage: false
             }
         }
     
@@ -29,8 +30,14 @@ class Operations extends Component {
             this.props.pushTransaction({ amount: Number(`-${this.state.Amount}`) , 
             vendor: this.state.Vendor , 
             category: this.state.Category})
-            } else{
-                document.getElementById("message").append("Insufficient Funds")
+            } else {
+                this.setState({
+                    showInsuffiecientMessage : true 
+                })
+                setTimeout(()=>{this.setState({
+                    showInsuffiecientMessage : false 
+                })
+                }, 3000);
             }
         }
 
@@ -38,13 +45,13 @@ class Operations extends Component {
         render() {
         return (
             <div className="inputSection">
-                <label for="inp" className="inp"><input name="Amount" type="number" placeholder="Amount" onChange={this.changer}></input></label>
+                <input name="Amount" type="number" placeholder="Amount" onChange={this.changer}></input>
                 <input name="Vendor" type="text" placeholder="Vendor" onChange={this.changer}></input>
                 <input name="Category" type="text" placeholder="Category" onChange={this.changer}></input>
                 <br></br>
                 <button onClick={this.pushDeposit}>Deposit</button>
                 <button onClick={this.pushWithdraw}>Withdraw</button>
-                <div id="message"></div>
+                <div id="message">{this.state.showInsuffiecientMessage ? "Insufficient Funds" : null}</div>
             </div>
 
         );

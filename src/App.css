@@ -20,13 +20,12 @@
 body{
   margin: 0 auto;
   margin-top: 0%;
-  
+  background-image: linear-gradient(to top, rgb(189, 158, 218), #4e0a3f);
+  background-attachment: fixed;
 }
 
 .App{
   margin: 0 auto;
-  background-image: linear-gradient(to top, rgb(189, 158, 218), #4e0a3f);
-  height: 100vh;
   font-family: 'Bree Serif', serif;
 
 }
@@ -115,10 +114,10 @@ button{
   }
 
   .breakDown{
-    /* align-items: center; */
-    margin: auto;
+   
     width: 70%;
     padding: 10px;
+    margin-left: 5vw;
     
 }
 
