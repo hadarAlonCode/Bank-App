@@ -22,7 +22,7 @@ class Operations extends Component {
         }
 
         pushDeposit = () =>{
-            this.props.pushTransaction({ amount: Number(this.state.Amount) , vendor: this.state.Vendor , category: this.state.Category})
+            this.props.pushTransaction( { amount: Number(this.state.Amount) , vendor: this.state.Vendor , category: this.state.Category} )
         }
 
         pushWithdraw = () =>{

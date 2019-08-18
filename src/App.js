@@ -25,7 +25,7 @@ class App extends Component {
      
     }
 
-    Sum=()=>{
+    balanceSum = ()=>{
       let sum = 0 
       for(let d of this.state.data){
          sum += d.amount 
@@ -40,7 +40,6 @@ class App extends Component {
   
     async componentDidMount() {
       const response = await this.getTranscations()
-      console.log(response.data);
       this.setState({ data: response.data })
     }
 
@@ -50,9 +49,9 @@ class App extends Component {
         <Router>
         <div className="App">
           <div className="title">Bank App</div>
-          <div className="Balance" style={ this.Sum() >= 0 ? { color: "#76e476"} : { color: "red"} }>Balance: {this.Sum()} $</div>
+          <div className="Balance" style={ this.balanceSum() >= 0 ? { color: "#76e476"} : { color: "red"} }>Balance: {this.balanceSum()} $</div>
 
-           <Operations pushTransaction={this.pushTransaction} balance={this.Sum}/>
+           <Operations pushTransaction={this.pushTransaction} balance={this.balanceSum}/>
            <div className="bodyGrid">
             <Transactions data={this.state.data}/>
             <div className="breakDown">

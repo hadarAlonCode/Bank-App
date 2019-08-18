@@ -11,9 +11,7 @@ router.get('/transcations', function (req, res) {
 })
 
     router.post('/transaction', function (req, res) {
-        let newTransaction = new Transaction(req.body)
-        console.log(newTransaction);
-        
+        let newTransaction = new Transaction(req.body)        
         newTransaction.save()
         res.send("completed adding Transaction")
     })
