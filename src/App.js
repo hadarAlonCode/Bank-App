@@ -21,7 +21,7 @@ class App extends Component {
         console.log("POST complete")
       })
 
-      this.componentDidMount()
+      this.getTranscations()
      
     }
 
@@ -35,12 +35,13 @@ class App extends Component {
 
 
     async getTranscations() {
-      return axios.get("http://localhost:5000/transcations")
+      const response = await axios.get("http://localhost:5000/transcations")
+      this.setState({ data: response.data })
+
     }
   
-    async componentDidMount() {
-      const response = await this.getTranscations()
-      this.setState({ data: response.data })
+     componentDidMount = () => {
+      this.getTranscations()
     }
 
 
