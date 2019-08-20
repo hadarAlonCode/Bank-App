@@ -5,9 +5,9 @@ class Operations extends Component {
         constructor() {
             super()
             this.state = {
-                Amount: "",
-                Vendor: "",
-                Category: "",
+                amount: "",
+                vendor: "",
+                category: "",
                 showInsuffiecientMessage: false
             }
         }
@@ -22,14 +22,14 @@ class Operations extends Component {
         }
 
         pushDeposit = () =>{
-            this.props.pushTransaction( { amount: Number(this.state.Amount) , vendor: this.state.Vendor , category: this.state.Category} )
+            this.props.pushTransaction( { amount: Number(this.state.amount) , vendor: this.state.vendor , category: this.state.category} )
         }
 
         pushWithdraw = () =>{
-            if( (this.props.balance() - this.state.Amount) > 500 ){
-            this.props.pushTransaction({ amount: Number(`-${this.state.Amount}`) , 
-            vendor: this.state.Vendor , 
-            category: this.state.Category})
+            if( (this.props.balance() - this.state.amount) > 500 ){
+            this.props.pushTransaction({ amount: Number(`-${this.state.amount}`) , 
+            vendor: this.state.vendor , 
+            category: this.state.category})
             } else {
                 this.setState({
                     showInsuffiecientMessage : true 
@@ -45,9 +45,9 @@ class Operations extends Component {
         render() {
         return (
             <div className="inputSection">
-                <input name="Amount" type="number" placeholder="Amount" onChange={this.changer}></input>
-                <input name="Vendor" type="text" placeholder="Vendor" onChange={this.changer}></input>
-                <input name="Category" type="text" placeholder="Category" onChange={this.changer}></input>
+                <input name="amount" type="number" placeholder="Amount" onChange={this.changer}></input>
+                <input name="vendor" type="text" placeholder="Vendor" onChange={this.changer}></input>
+                <input name="category" type="text" placeholder="Category" onChange={this.changer}></input>
                 <br></br>
                 <button onClick={this.pushDeposit}>Deposit</button>
                 <button onClick={this.pushWithdraw}>Withdraw</button>

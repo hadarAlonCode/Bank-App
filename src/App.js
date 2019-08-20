@@ -6,8 +6,6 @@ import Transactions from './components/Transactions';
 import axios from 'axios';
 import Breakdown from './components/Breakdown'; 
 
-// import Button from '@material-ui/core/Button';
-
 class App extends Component {
   constructor(){
       super()
@@ -20,7 +18,6 @@ class App extends Component {
         await axios.post("http://localhost:5000/transaction", transcation, function(response){
         console.log("POST complete")
       })
-
       this.getTranscations()
      
     }
