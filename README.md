@@ -4,7 +4,7 @@
  Fullstack React application
  Basic app - I will add more features in the future
 
-### Built With
+### Built With:
 - React
 - MongoDB
 - Express
