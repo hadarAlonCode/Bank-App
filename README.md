@@ -1,5 +1,5 @@
 
-## CRM - Managing financial expenses
+## Bank App - Managing financial expenses
 
  Fullstack React application
  Basic app - I will add more features in the future
